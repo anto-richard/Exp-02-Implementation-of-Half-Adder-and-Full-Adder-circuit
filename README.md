@@ -56,20 +56,24 @@ RegisterNumber:  212221240005
 
 HALF ADDER:
 
-module HalfAdder(a,b,sum,carry);
-input a,b;
-output sum,carry;
-xor(sum,a,b);
-and(carry,a,b);
-endmodule 
+module HalfAdder(A,B,C,S);
+input A,B;
+output S,C;
+xor(S,A,B);
+and(C,A,B);
+endmodule
 
 FULL ADDER:
 
-module FullAdder(a,b,c,sum,carry);
-input a,b,c;
-output sum,carry;
-assign sum = ((a^b)^c);
-assign carry = ((a&b)|(b&c)|(c&a));
+module FullAdder(a,b,ci,s,co);
+input a,b,ci;
+output s,co;
+wire d,e,f;
+xor(d,a,b);
+xor(s,d,ci);
+and(e,ci,d);
+and(f,a,b);
+or(co,e,f);
 endmodule
 
 ```
@@ -78,52 +82,41 @@ endmodule
 
 ### Half adder:
 
-
 ### Logic symbol:
 
-![img 1](https://user-images.githubusercontent.com/93427534/231545788-96c58368-1617-47a9-ae2c-44a4653edfc3.png)
-
-
+![out1](https://user-images.githubusercontent.com/93427534/233117477-bf3bf502-1b6a-41d5-905a-e2301f896f2f.png)
 
 ### RTL realization:
 
-![img 2](https://user-images.githubusercontent.com/93427534/231545798-af2d542d-0059-4c64-a2e7-8b2e09bee291.png)
-
+![out2](https://user-images.githubusercontent.com/93427534/233117497-5259c316-325d-42c1-b0ea-56f4b51d4d12.png)
 
 ### Truthtable:
 
-![img 3](https://user-images.githubusercontent.com/93427534/231545808-16a8d697-2e0c-4cba-8bbd-538bfb194641.png)
-
+![out3](https://user-images.githubusercontent.com/93427534/233117512-ec94cbf4-555d-4f46-9921-39e4070b38bb.png)
 
 ### TIMING DIAGRAM:
 
-![img4](https://user-images.githubusercontent.com/93427534/231545827-75f34e4f-c2e9-435f-8cfd-519866c44a8a.png)
-
+![out4](https://user-images.githubusercontent.com/93427534/233117541-619e450b-03dc-482a-8dbc-37233a3c23c7.png)
 
 ### Full adder:
 
-
-
 ### Logic symbol:
 
-![img5](https://user-images.githubusercontent.com/93427534/231545838-9ff2363c-5678-4a10-9608-e72a1bb9d17e.png)
-
+![img1](https://user-images.githubusercontent.com/93427534/233117593-2196c2cf-8202-4127-b94f-97c12057f662.png)
 
 ### RTL realization:
 
-![img6](https://user-images.githubusercontent.com/93427534/231545853-4450e427-13fb-465c-8c1a-37106eb8832f.png)
-
+![img2](https://user-images.githubusercontent.com/93427534/233117610-98689ad5-6026-407c-b0e5-fc3e89db0438.png)
 
 ### Truthtable:
 
-
-![img7](https://user-images.githubusercontent.com/93427534/231545863-1ccff0b6-586c-4a25-beef-1b73b69933bf.png)
+![img3](https://user-images.githubusercontent.com/93427534/233117642-a8215791-107f-4a7c-b749-e2d1e7f0334b.png)
 
 ### TIMING DIAGRAM:
 
-![img8](https://user-images.githubusercontent.com/93427534/231545880-338a1721-5fbd-46dd-b737-b99bfe913962.png)
-
+![img4](https://user-images.githubusercontent.com/93427534/233117672-0c888c03-eaab-4d8c-bd3c-0ddfef7ede2c.png)
 
 ### Result:
 
 Thus, a half adder and full adder circuit is designed to verify its truth table in Quartus using Verilog programming.
+
